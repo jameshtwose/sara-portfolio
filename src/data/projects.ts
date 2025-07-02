@@ -7,7 +7,6 @@ export interface ProjectDetail {
   fullDescription: string;
   technologies: string[];
   splineSceneUrl: string;
-  gallery: string[];
   challenges: string[];
   solutions: string[];
   results: string;
@@ -26,11 +25,6 @@ export const projectsData: ProjectDetail[] = [
     fullDescription: 'This comprehensive character collection showcases my expertise in creating engaging, stylized 3D characters for interactive media. Each character was meticulously crafted with attention to personality, anatomical accuracy, and technical optimization for real-time rendering.',
     technologies: ['Blender', 'Substance Painter', 'ZBrush', 'Spline'],
     splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=800&h=600&fit=crop&crop=center'
-    ],
     challenges: [
       'Creating characters optimized for real-time rendering while maintaining visual quality',
       'Developing a consistent art style across diverse character archetypes',
@@ -54,12 +48,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Interactive 3D environment with dynamic lighting and atmospheric effects.',
     fullDescription: 'An immersive real-time 3D environment featuring dynamic weather systems, interactive elements, and optimized performance for web browsers. This project demonstrates advanced real-time rendering techniques and environmental storytelling.',
     technologies: ['Unreal Engine', 'Spline', 'Photoshop', 'Substance Designer'],
-    splineSceneUrl: 'https://prod.spline.design/example-environment/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop&crop=center'
-    ],
+    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
     challenges: [
       'Optimizing complex environments for web browser performance',
       'Creating believable atmospheric effects and lighting',
@@ -83,12 +72,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Complete brand identity package including 3D logo animations and visual guidelines.',
     fullDescription: 'A comprehensive brand identity project that combines traditional graphic design principles with cutting-edge 3D visualization. The project includes logo design, brand guidelines, 3D animations, and interactive brand experiences.',
     technologies: ['Cinema 4D', 'After Effects', 'Illustrator', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/example-branding/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&crop=center'
-    ],
+    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
     challenges: [
       'Creating a cohesive brand identity that works across digital and physical media',
       'Developing 3D elements that enhance rather than distract from brand message',
@@ -112,12 +96,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'High-quality product renders and interactive 3D models for e-commerce.',
     fullDescription: 'A comprehensive product visualization project featuring photorealistic renders and interactive 3D models for e-commerce platforms. The project focuses on showcasing product details and functionality through immersive 3D experiences.',
     technologies: ['KeyShot', 'Blender', 'Substance Designer', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/example-product/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop&crop=center'
-    ],
+    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
     challenges: [
       'Achieving photorealistic quality while maintaining web performance',
       'Creating accurate material representations across different products',
@@ -141,12 +120,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Photorealistic architectural renders and virtual walkthroughs.',
     fullDescription: 'High-end architectural visualization project featuring photorealistic renders and immersive virtual walkthroughs. The project combines technical accuracy with artistic vision to help clients visualize their architectural concepts.',
     technologies: ['3ds Max', 'V-Ray', 'Photoshop', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/example-architecture/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&crop=center'
-    ],
+    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
     challenges: [
       'Balancing photorealism with artistic interpretation',
       'Managing large-scale architectural data and complex geometries',
@@ -170,12 +144,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Dynamic motion graphics and animations for digital marketing campaigns.',
     fullDescription: 'A comprehensive motion graphics suite designed for digital marketing campaigns, featuring dynamic animations, interactive elements, and engaging visual narratives that capture audience attention across multiple platforms.',
     technologies: ['After Effects', 'Cinema 4D', 'Octane', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/example-motion/scene.splinecode',
-    gallery: [
-      'https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=800&h=600&fit=crop&crop=center',
-      'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop&crop=center'
-    ],
+    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
     challenges: [
       'Creating engaging animations that work across multiple social media platforms',
       'Optimizing file sizes while maintaining visual quality',

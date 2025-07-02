@@ -28,16 +28,15 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Spline Scene */}
-        <div className="absolute inset-0 w-full h-full">
-          <Suspense fallback={
-            <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-            </div>
-          }>
+        {/* Background Gradient */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"></div>
+        
+        {/* Subtle Spline Background */}
+        <div className="absolute inset-0 w-full h-full opacity-20">
+          <Suspense fallback={<div className="w-full h-full"></div>}>
             <Spline
               scene={project.splineSceneUrl}
-              className="w-full h-full opacity-70"
+              className="w-full h-full"
             />
           </Suspense>
         </div>
@@ -157,7 +156,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Interactive Spline Scene Section */}
       <section className="py-20 bg-slate-800/50">
         <div className="container mx-auto px-6">
           <motion.div
@@ -168,29 +167,46 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold mb-6 gradient-text">
-              Project Gallery
+              Interactive 3D Experience
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto"></div>
+            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Explore the interactive 3D scene below. You can rotate, zoom, and interact with the elements to get a full understanding of the project.
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.gallery.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="glass-effect rounded-lg overflow-hidden hover-lift group"
-              >
-                <img
-                  src={image}
-                  alt={`${project.title} - Image ${index + 1}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="glass-effect rounded-lg overflow-hidden"
+            style={{ height: '600px' }}
+          >
+            <Suspense fallback={
+              <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mb-4"></div>
+                <p className="text-white text-lg">Loading Interactive 3D Scene...</p>
+              </div>
+            }>
+              <Spline
+                scene={project.splineSceneUrl}
+                className="w-full h-full"
+              />
+            </Suspense>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-8"
+          >
+            <p className="text-gray-400 text-sm">
+              💡 <strong>Tip:</strong> Click and drag to rotate • Scroll to zoom • Explore interactive elements
+            </p>
+          </motion.div>
         </div>
       </section>
 
