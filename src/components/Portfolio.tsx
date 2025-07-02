@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Eye, ExternalLink } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { projectsData } from '../data/projects';
 
 interface Project {
@@ -113,20 +113,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <button
                     onClick={() => onProjectSelect?.(project.id)}
                     className="bg-primary hover:bg-blue-600 text-white p-3 rounded-full transition-colors duration-300"
                     title="View Project"
                   >
                     <Eye size={20} />
-                  </button>
-                  <button
-                    onClick={() => onProjectSelect?.(project.id)}
-                    className="bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-full transition-colors duration-300"
-                    title="View Details"
-                  >
-                    <ExternalLink size={20} />
                   </button>
                 </div>
               </div>
