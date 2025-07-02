@@ -1,6 +1,6 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Clock, Maximize, Minimize } from 'lucide-react';
 import { ProjectDetail } from '../data/projects';
 
 // Lazy load Spline component
@@ -12,13 +12,89 @@ interface ProjectPageProps {
 }
 
 const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Handle fullscreen toggle
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
+  // Handle escape key to exit fullscreen
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isFullscreen]);
+
+  // Handle body overflow for fullscreen mode
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isFullscreen]);
+
   return (
     <div className="min-h-screen bg-dark text-white">
+      {/* Fullscreen Spline Overlay */}
+      {isFullscreen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black z-50 flex flex-col"
+        >
+          {/* Fullscreen Controls */}
+          <div className="absolute top-4 right-4 z-60 flex gap-2">
+            <button
+              onClick={toggleFullscreen}
+              className="bg-dark/80 backdrop-blur-md border border-gray-700 text-white p-3 rounded-full hover:bg-gray-800 transition-all duration-300 hover-lift"
+              title="Exit Fullscreen (ESC)"
+            >
+              <Minimize size={20} />
+            </button>
+          </div>
+
+          <div className="flex-1">
+            <Suspense fallback={
+              <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mb-4"></div>
+                <p className="text-white text-lg">Loading Interactive 3D Scene...</p>
+              </div>
+            }>
+              <Spline
+                scene={project.splineSceneUrl}
+                className="w-full h-full"
+              />
+            </Suspense>
+          </div>
+
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-60">
+            <p className="text-gray-400 text-sm bg-dark/80 backdrop-blur-md px-4 py-2 rounded-full">
+              💡 <strong>Tip:</strong> Click and drag to rotate • Scroll to zoom • Press ESC to exit fullscreen
+            </p>
+          </div>
+        </motion.div>
+      )}
+
       {/* Back Button */}
       <div className="fixed top-20 left-6 z-50">
         <motion.button
@@ -175,21 +251,36 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="glass-effect rounded-lg overflow-hidden"
+            className="glass-effect rounded-lg overflow-hidden relative"
             style={{ height: '600px' }}
             onWheel={(e) => {
               // Prevent page scrolling when interacting with Spline scene
               e.stopPropagation();
             }}
             onMouseEnter={() => {
-              // Disable page scrolling when mouse enters Spline area
-              document.body.style.overflow = 'hidden';
+              // Only disable page scrolling if not in fullscreen mode
+              if (!isFullscreen) {
+                document.body.style.overflow = 'hidden';
+              }
             }}
             onMouseLeave={() => {
-              // Re-enable page scrolling when mouse leaves Spline area
-              document.body.style.overflow = 'unset';
+              // Only re-enable page scrolling if not in fullscreen mode
+              if (!isFullscreen) {
+                document.body.style.overflow = 'unset';
+              }
             }}
           >
+            {/* Fullscreen Button */}
+            <div className="absolute top-4 right-4 z-20">
+              <button
+                onClick={toggleFullscreen}
+                className="bg-dark/80 backdrop-blur-md border border-gray-700 text-white p-3 rounded-full hover:bg-gray-800 transition-all duration-300 hover-lift"
+                title="View in Fullscreen"
+              >
+                <Maximize size={20} />
+              </button>
+            </div>
+
             <Suspense fallback={
               <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center">
                 <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mb-4"></div>
