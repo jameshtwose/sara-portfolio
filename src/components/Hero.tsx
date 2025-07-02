@@ -9,16 +9,15 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Spline Scene */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <Suspense fallback={
           <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
           </div>
         }>
-          {/* You can replace this URL with Sara Popov's actual Spline scene */}
           <Spline
-            scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-            className="w-full h-full opacity-60"
+            scene="https://prod.spline.design/S8o9DE-254xyJ0lv/scene.splinecode"
+            className="w-full h-full opacity-10"
           />
         </Suspense>
       </div>

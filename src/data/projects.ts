@@ -24,7 +24,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'A collection of stylized 3D characters created for various gaming and animation projects.',
     fullDescription: 'This comprehensive character collection showcases my expertise in creating engaging, stylized 3D characters for interactive media. Each character was meticulously crafted with attention to personality, anatomical accuracy, and technical optimization for real-time rendering.',
     technologies: ['Blender', 'Substance Painter', 'ZBrush', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/KFonZGtsoUXP-qx7/scene.splinecode',
     challenges: [
       'Creating characters optimized for real-time rendering while maintaining visual quality',
       'Developing a consistent art style across diverse character archetypes',
@@ -48,7 +48,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Interactive 3D environment with dynamic lighting and atmospheric effects.',
     fullDescription: 'An immersive real-time 3D environment featuring dynamic weather systems, interactive elements, and optimized performance for web browsers. This project demonstrates advanced real-time rendering techniques and environmental storytelling.',
     technologies: ['Unreal Engine', 'Spline', 'Photoshop', 'Substance Designer'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode',
     challenges: [
       'Optimizing complex environments for web browser performance',
       'Creating believable atmospheric effects and lighting',
@@ -72,7 +72,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Complete brand identity package including 3D logo animations and visual guidelines.',
     fullDescription: 'A comprehensive brand identity project that combines traditional graphic design principles with cutting-edge 3D visualization. The project includes logo design, brand guidelines, 3D animations, and interactive brand experiences.',
     technologies: ['Cinema 4D', 'After Effects', 'Illustrator', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode',
     challenges: [
       'Creating a cohesive brand identity that works across digital and physical media',
       'Developing 3D elements that enhance rather than distract from brand message',
@@ -96,7 +96,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'High-quality product renders and interactive 3D models for e-commerce.',
     fullDescription: 'A comprehensive product visualization project featuring photorealistic renders and interactive 3D models for e-commerce platforms. The project focuses on showcasing product details and functionality through immersive 3D experiences.',
     technologies: ['KeyShot', 'Blender', 'Substance Designer', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/U9O6K7fXziMEU7Wu/scene.splinecode',
     challenges: [
       'Achieving photorealistic quality while maintaining web performance',
       'Creating accurate material representations across different products',
@@ -120,7 +120,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Photorealistic architectural renders and virtual walkthroughs.',
     fullDescription: 'High-end architectural visualization project featuring photorealistic renders and immersive virtual walkthroughs. The project combines technical accuracy with artistic vision to help clients visualize their architectural concepts.',
     technologies: ['3ds Max', 'V-Ray', 'Photoshop', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/PBQQBw8bfXDhBo7w/scene.splinecode',
     challenges: [
       'Balancing photorealism with artistic interpretation',
       'Managing large-scale architectural data and complex geometries',
@@ -144,7 +144,7 @@ export const projectsData: ProjectDetail[] = [
     description: 'Dynamic motion graphics and animations for digital marketing campaigns.',
     fullDescription: 'A comprehensive motion graphics suite designed for digital marketing campaigns, featuring dynamic animations, interactive elements, and engaging visual narratives that capture audience attention across multiple platforms.',
     technologies: ['After Effects', 'Cinema 4D', 'Octane', 'Spline'],
-    splineSceneUrl: 'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode',
+    splineSceneUrl: 'https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode',
     challenges: [
       'Creating engaging animations that work across multiple social media platforms',
       'Optimizing file sizes while maintaining visual quality',

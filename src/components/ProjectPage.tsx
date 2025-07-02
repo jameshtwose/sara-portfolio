@@ -35,16 +35,6 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Gradient */}
         <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"></div>
-        
-        {/* Subtle Spline Background */}
-        <div className="absolute inset-0 w-full h-full opacity-20">
-          <Suspense fallback={<div className="w-full h-full"></div>}>
-            <Spline
-              scene={project.splineSceneUrl}
-              className="w-full h-full"
-            />
-          </Suspense>
-        </div>
 
         {/* Content Overlay */}
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -187,6 +177,18 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ project, onBack }) => {
             viewport={{ once: true }}
             className="glass-effect rounded-lg overflow-hidden"
             style={{ height: '600px' }}
+            onWheel={(e) => {
+              // Prevent page scrolling when interacting with Spline scene
+              e.stopPropagation();
+            }}
+            onMouseEnter={() => {
+              // Disable page scrolling when mouse enters Spline area
+              document.body.style.overflow = 'hidden';
+            }}
+            onMouseLeave={() => {
+              // Re-enable page scrolling when mouse leaves Spline area
+              document.body.style.overflow = 'unset';
+            }}
           >
             <Suspense fallback={
               <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center">
