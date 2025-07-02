@@ -18,6 +18,42 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle deep linking on page load
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Small delay to ensure page is fully loaded
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100);
+    }
+  }, []);
+
+  const scrollToSection = (href: string): void => {
+    const element = document.querySelector(href) as HTMLElement;
+    if (element) {
+      // Get the header height to account for fixed positioning
+      const headerHeight = 80; // Approximate header height
+      const elementPosition = element.offsetTop - headerHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+
+      // Update the URL hash without triggering a page reload
+      window.history.replaceState(null, '', href);
+    } else {
+      console.warn(`Element with selector ${href} not found`);
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string): void => {
+    e.preventDefault();
+    scrollToSection(href);
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
+
   const navItems: NavItem[] = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -34,9 +70,13 @@ const Header: React.FC = () => {
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold gradient-text">
+          <a 
+            href="#home"
+            onClick={(e) => handleNavClick(e, '#home')}
+            className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+          >
             Sara Popov
-          </div>
+          </a>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -44,7 +84,8 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-gray-300 hover:text-white transition-colors duration-300 relative group cursor-pointer"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -69,8 +110,8 @@ const Header: React.FC = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-300 hover:text-white transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="block text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer"
                 >
                   {item.name}
                 </a>

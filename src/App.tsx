@@ -14,14 +14,23 @@ import { getProjectById } from './data/projects';
 
 const App: React.FC = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
+  const [previousHash, setPreviousHash] = useState<string>('');
   const selectedProject = selectedProjectId ? getProjectById(selectedProjectId) : null;
 
   const handleProjectSelect = (projectId: number) => {
+    // Store the current hash before navigating to project
+    setPreviousHash(window.location.hash);
     setSelectedProjectId(projectId);
   };
 
   const handleBackToPortfolio = () => {
     setSelectedProjectId(null);
+    // Restore the previous hash after a short delay to allow the page to render
+    setTimeout(() => {
+      if (previousHash) {
+        window.location.hash = previousHash;
+      }
+    }, 100);
   };
 
   if (selectedProject) {
